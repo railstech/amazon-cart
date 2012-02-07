@@ -8,9 +8,9 @@ gem 'rails', '3.2.0'
 gem 'pg'
 
 
-gem "asin",         "0.7.0"
+gem "rasin",         "0.7.0"
 gem "httpclient",   "2.2.4"
-
+gem "heroku"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
