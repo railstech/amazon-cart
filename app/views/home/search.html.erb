@@ -36,6 +36,7 @@
   Total Pages <%= @amazon_search.total_pages %>
   Toral items<%= @amazon_search.total_results %>
  </div>
+ <% if  @amazon_search.items.present? %>
 <% @amazon_search.items.each_with_index do |item,index| %>
   <div class="info grid_2">
     <%= image_tag item.medium_image_url %>
@@ -47,4 +48,5 @@
   <%if index+1%6==0 %>
     <div class="clear"></div>
   <% end %>
+<% end %>
 <% end %>
