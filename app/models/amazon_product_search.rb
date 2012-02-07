@@ -57,7 +57,6 @@ class AmazonProductSearch
     elsif
       build_search_params =   {:SearchIndex => @search_index , :ResponseGroup  => @response_group.flatten.uniq.compact,:Keywords=>@keywords,:BrowseNode=>@browse_node}
     end
-    binding.pry
     @items,@response = @client.search(build_search_params)
      
    # fetch_review_items
