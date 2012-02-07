@@ -33,12 +33,13 @@ class AmazonProductSearch
        }
 
 
-  attr_accessor :keywords,:search_index,:response_group,:items,:review_items,:response
+  attr_accessor :keywords,:search_index,:response_group,:items,:review_items,:response,:department,:browse_node
   def initialize
     @client = ASIN::Client.instance
     @response_group = []
   end
   def search(params)
+    build_search_params = {}
     @department = SEARCH_INDEX[params["search_index"].to_s] 
     #@keywords = params["keywords"].split(/,| /).join("+") rescue "All"
     @department =  SEARCH_INDEX["All"] if @department.nil?
@@ -47,9 +48,17 @@ class AmazonProductSearch
     @keywords = params["keywords"]
     @response_group <<  :Large
     @response_group <<  :SearchBins
-    @response_group <<  :BrowseNodeInfo unless @browse_node.nil? || @browse_node.empty?
+   @response_group <<  :BrowseNodes #unless @browse_node.nil? || @browse_node.empty?
     @response_group << params["response_group"] 
-    @items,@response = @client.search({:SearchIndex => @search_index , :ResponseGroup  => @response_group.flatten.uniq.compact,:Keywords=>@keywords,:BrowseNode=>@browse_node})
+    @search_index = [:All] if @search_index.nil? || @search_index.empty? && @browse_node.empty?
+    
+    if @search_index == [:All]
+      build_search_params={:SearchIndex => @search_index , :ResponseGroup  => @response_group.flatten.uniq.compact,:Keywords=>@keywords}
+    elsif
+      build_search_params =   {:SearchIndex => @search_index , :ResponseGroup  => @response_group.flatten.uniq.compact,:Keywords=>@keywords,:BrowseNode=>@browse_node}
+    end
+    binding.pry
+    @items,@response = @client.search(build_search_params)
      
    # fetch_review_items
   end
@@ -58,5 +67,18 @@ class AmazonProductSearch
   end
   def total_results
     @response['ItemSearchResponse']['Items']['TotalResults'] rescue 0
+  end
+
+  def narrow_by_subject
+    @response["ItemSearchResponse"]["Items"]["SearchBinSets"]["SearchBinSet"][0]["Bin"] rescue []
+  end
+  def narrow_by_brand_name
+    @response["ItemSearchResponse"]["Items"]["SearchBinSets"]["SearchBinSet"][1]["Bin"] rescue []
+  end
+  def narrow_by_price_range
+    @response["ItemSearchResponse"]["Items"]["SearchBinSets"]["SearchBinSet"][2]["Bin"] rescue []
+  end
+  def narrow_by_special_size
+    @response["ItemSearchResponse"]["Items"]["SearchBinSets"]["SearchBinSet"][3]["Bin"] rescue []
   end
 end
