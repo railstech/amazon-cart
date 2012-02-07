@@ -1,0 +1,33 @@
+=> [[],[0m
+ {[32m[1;32m"[0m[32mItemSearchResponse[1;32m"[0m[32m[0m=>
+   {[32m[1;32m"[0m[32mOperationRequest[1;32m"[0m[32m[0m=>
+     {[32m[1;32m"[0m[32mRequestId[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mf2c9d0ff-549a-4dbc-b726-6ab354f9c9f1[1;32m"[0m[32m[0m,
+      [32m[1;32m"[0m[32mArguments[1;32m"[0m[32m[0m=>
+       {[32m[1;32m"[0m[32mArgument[1;32m"[0m[32m[0m=>
+         [{[32m[1;32m"[0m[32mName[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mOperation[1;32m"[0m[32m[0m, [32m[1;32m"[0m[32mValue[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mItemSearch[1;32m"[0m[32m[0m},
+          {[32m[1;32m"[0m[32mName[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mService[1;32m"[0m[32m[0m, [32m[1;32m"[0m[32mValue[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mAWSECommerceService[1;32m"[0m[32m[0m},
+          {[32m[1;32m"[0m[32mName[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mSignature[1;32m"[0m[32m[0m,
+           [32m[1;32m"[0m[32mValue[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mKzOBEb6KzPhPtW8VmFdR9PnWbcv7Rq3B/0IvZ0+Sjc0=[1;32m"[0m[32m[0m},
+          {[32m[1;32m"[0m[32mName[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mAssociateTag[1;32m"[0m[32m[0m, [32m[1;32m"[0m[32mValue[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mtwoologyidyll-20![1;32m"[0m[32m[0m},
+          {[32m[1;32m"[0m[32mName[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mBrowseNode[1;32m"[0m[32m[0m},
+          {[32m[1;32m"[0m[32mName[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mVersion[1;32m"[0m[32m[0m, [32m[1;32m"[0m[32mValue[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32m2011-08-01[1;32m"[0m[32m[0m},
+          {[32m[1;32m"[0m[32mName[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mKeywords[1;32m"[0m[32m[0m, [32m[1;32m"[0m[32mValue[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32moven[1;32m"[0m[32m[0m},
+          {[32m[1;32m"[0m[32mName[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mAWSAccessKeyId[1;32m"[0m[32m[0m, [32m[1;32m"[0m[32mValue[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mAKIAJTVK5XI3WHSXV6WA[1;32m"[0m[32m[0m},
+          {[32m[1;32m"[0m[32mName[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mTimestamp[1;32m"[0m[32m[0m, [32m[1;32m"[0m[32mValue[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32m2012-02-07T13:09:19Z[1;32m"[0m[32m[0m},
+          {[32m[1;32m"[0m[32mName[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mResponseGroup[1;32m"[0m[32m[0m,
+           [32m[1;32m"[0m[32mValue[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mLarge,SearchBins,BrowseNodeInfo[1;32m"[0m[32m[0m},
+          {[32m[1;32m"[0m[32mName[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mSearchIndex[1;32m"[0m[32m[0m, [32m[1;32m"[0m[32mValue[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mAppliances[1;32m"[0m[32m[0m}]},
+      [32m[1;32m"[0m[32mRequestProcessingTime[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32m0.0021750000000000[1;32m"[0m[32m[0m},
+    [32m[1;32m"[0m[32mItems[1;32m"[0m[32m[0m=>
+     {[32m[1;32m"[0m[32mRequest[1;32m"[0m[32m[0m=>
+       {[32m[1;32m"[0m[32mIsValid[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mFalse[1;32m"[0m[32m[0m,
+        [32m[1;32m"[0m[32mItemSearchRequest[1;32m"[0m[32m[0m=>
+         {[32m[1;32m"[0m[32mKeywords[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32moven[1;32m"[0m[32m[0m,
+          [32m[1;32m"[0m[32mResponseGroup[1;32m"[0m[32m[0m=>[[32m[1;32m"[0m[32mLarge[1;32m"[0m[32m[0m, [32m[1;32m"[0m[32mSearchBins[1;32m"[0m[32m[0m, [32m[1;32m"[0m[32mBrowseNodeInfo[1;32m"[0m[32m[0m],
+          [32m[1;32m"[0m[32mSearchIndex[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mAppliances[1;32m"[0m[32m[0m},
+        [32m[1;32m"[0m[32mErrors[1;32m"[0m[32m[0m=>
+         {[32m[1;32m"[0m[32mError[1;32m"[0m[32m[0m=>
+           {[32m[1;32m"[0m[32mCode[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mAWS.InvalidResponseGroup[1;32m"[0m[32m[0m,
+            [32m[1;32m"[0m[32mMessage[1;32m"[0m[32m[0m=>
+             [32m[1;32m"[0m[32mYour ResponseGroup parameter is invalid. Valid response groups for ItemLookup requests include ['Request','ItemIds','Small','Medium','Large','Offers','OfferFull','OfferSummary','OfferListings','PromotionSummary','PromotionDetails','VariationMinimum','VariationSummary','VariationMatrix','VariationOffers','Variations','TagsSummary','Tags','ItemAttributes','MerchantItemAttributes','Tracks','Accessories','EditorialReview','SalesRank','BrowseNodes','Images','Similarities','Subjects','Reviews','ListmaniaLists','SearchInside','PromotionalTag','SearchBins','AlternateVersions','Collections','RelatedItems','ShippingCharges','ShippingOptions'].[1;32m"[0m[32m[0m}}}},
+    [32m[1;32m"[0m[32mxmlns[1;32m"[0m[32m[0m=>[32m[1;32m"[0m[32mhttp://webservices.amazon.com/AWSECommerceService/2011-08-01[1;32m"[0m[32m[0m}}]

@@ -1,0 +1,40 @@
+<%= content_for :sidebar do %>
+<ul>
+<% AmazonProductSearch::GIFTOPEDIA_ITEMS.each do |k,v|%>
+<li><a href="/?browsing_nodes=<%=k %>"><%= k %></a></li>
+<% end %>
+</ul>
+<% end %>
+<div class="top-filter">
+  <%= form_tag("/") do %>
+  <div class="grid_5">
+  Department
+  <%= select_tag(:search_index,options_for_select(@amazon_search.list_search_indexes.collect{|s|[s[0],s[0]]})) %>
+    </div>  
+    <div class="grid_3">
+      Keyword
+      <%= text_field_tag :keywords %>
+     </div> 
+      <div class="grid_2">
+      Search
+      <%= submit_tag "Search" %>
+  </div>
+  </div>
+  <% end %>
+</div>
+ <div>
+  Total Pages <%= @amazon_search.total_pages %>
+  Toral items<%= @amazon_search.total_results %>
+ </div>
+<% @amazon_search.items.each_with_index do |item,index| %>
+  <div class="info grid_2">
+    <%= image_tag item.medium_image_url %>
+    <div><%= item.title%></div>
+    <div><%= item.amount%></div>
+    <div><iframe src="<%#= item.customer_review_url rescue nil%>"></iframe></div>
+    
+  </div>
+  <%if index+1%6==0 %>
+    <div class="clear"></div>
+  <% end %>
+<% end %>
