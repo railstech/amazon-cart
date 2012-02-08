@@ -46,7 +46,7 @@ module AmazonProductApi
     "PC Hardware"=>{:SearchIndex=>[:PCHardware],:BrowseNode=>[nil],:NarrowBy=>["Subject", "BrandName", "PriceRange", "SpecialSize"]},
     "Pet Supplies"=>{:SearchIndex=>[:PetSupplies],:BrowseNode=>[2619533011]},
     "Photo"=>{:SearchIndex=>[:Photo],:BrowseNode=>[nil],:NarrowBy=>["Subject", "BrandName", "PriceRange", "SpecialSize"]},
-    "Shoes"=>{:SearchIndex=>[:Shoes],:BrowseNode=>[672123011]}, 
+    "Shoes"=>{:SearchIndex=>[:Shoes],:BrowseNode=>[672123011],:NarrowBy=>["Subject", "BrandName", "PriceRange", "SpecialSize"]}, 
     #"Silver Merchants"=>{:SearchIndex=>:SilverMerchants,:BrowseNode=>3760911}, 
     :Software=>{:SearchIndex=>[:Software],:BrowseNode=>[229534],:NarrowBy=>["Subject", "BrandName", "PriceRange", "SpecialSize"]},
     "Sporting Goods"=>{:SearchIndex=>[:SportingGoods],:BrowseNode=>[3375251],:NarrowBy=>["Subject", "BrandName", "PriceRange", "SpecialSize"]},

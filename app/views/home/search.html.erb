@@ -1,25 +1,47 @@
 <%= content_for :sidebar do %>
 
-  <% if @amazon_search.department[:NarrowBy].present? %>
-    <% @amazon_search.department[:NarrowBy].each do |narrow| %>
+  <% unless @amazon_search.narrow_by.nil? || @amazon_search.narrow_by.empty? %>
+    <% @amazon_search.narrow_by.each do |narrow| %>
       <strong><%= narrow %></strong>
       <ul>
-        <% @amazon_search.narrow_by_subject.each do |k|%>
-        <li>
-            </li><%= k["BinName"]%>(<%= k["BinItemCount"]%>)</li>   
-        </li>
+        <% if narrow == "Subject" %>
+             
+          <% @amazon_search.narrow_by_subject.each do |bin|%>
+            <li>
+        
+             <a href="/search?<%=@amazon_search.build_search_params %>&BrowseNode=<%=@amazon_search.browse_node_from_bin(bin) %>"><%= @amazon_search.bin_name(bin)%>(<%= @amazon_search.bin_item_count(bin)%>)</a>
+            </li>   
+          <% end %>
+        <% elsif narrow=="BrandName" %>
+          <% @amazon_search.narrow_by_brand_name.each do |bin|%>
+           <li>
+             <a href="/search?<%=@amazon_search.build_search_params %>&Brand=<%=@amazon_search.brand_name_from_bin(bin) %>"><%= @amazon_search.bin_name(bin)%>(<%= @amazon_search.bin_item_count(bin)%>)</a>
+           </li>   
+          <% end %>
+        <% elsif narrow=="PriceRange" %>
+          <% @amazon_search.narrow_by_price_range.each do |bin|%>
+           <li>
+             <a href="/search?<%=@amazon_search.build_search_params %>&MinimumPrice=<%=@amazon_search.min_price_from_bin(bin).to_s %>&MaximumPrice=<%=@amazon_search.max_price_from_bin(bin).to_s %>"><%= @amazon_search.bin_name(bin)%>(<%= @amazon_search.bin_item_count(bin)%>)</a>
+            </li>   
+          <% end %>
+      <% elsif narrow=="PercentageOff" %>
+        <% @amazon_search.narrow_by_special_size.each do |k|%>
+            <li>
+            <a href="/search?<%=@amazon_search.build_search_params %>&MinPercenatgeOff<%=@amazon_search.percentage_off_from_bin(bin) %>"><%= @amazon_search.bin_name(bin)%>(<%= @amazon_search.bin_item_count(bin)%>)</a>
+            </li>   
+        
         <% end %>
       </ul>
     <% end %>
   <% end %>
-
+ <% end %>
 <% end %>
 
 <div class="top-filter">
   <%= form_tag("/search",:method=>:get) do %>
   <div class="grid_5">
   Department
-  <%= select_tag(:search_index,options_for_select(@amazon_search.list_search_indexes.collect{|s|[s[0],s[0]]})) %>
+  <%= select_tag(:department,options_for_select(@amazon_search.list_search_indexes.collect{|s|[s[0],s[0]]})) %>
     </div>  
     <div class="grid_3">
       Keyword
@@ -37,16 +59,16 @@
   Toral items<%= @amazon_search.total_results %>
  </div>
  <% if  @amazon_search.items.present? %>
-<% @amazon_search.items.each_with_index do |item,index| %>
-  <div class="info grid_2">
-    <%= image_tag item.medium_image_url %>
-    <div><%= item.title%></div>
-    <div><%= item.amount%></div>
-    <div><iframe src="<%#= item.customer_review_url rescue nil%>"></iframe></div>
-    
-  </div>
-  <%if index+1%6==0 %>
-    <div class="clear"></div>
+  <% @amazon_search.items.each_with_index do |item,index| %>
+    <div class="info grid_2">
+      <%= image_tag item.medium_image_url %>
+      <div><%= item.title%></div>
+      <div><%= item.amount%></div>
+      <div><iframe src="<%#= item.customer_review_url rescue nil%>"></iframe></div>
+      
+    </div>
+    <%if index+1%6==0 %>
+      <div class="clear"></div>
+    <% end %>
   <% end %>
-<% end %>
-<% end %>
+ <% end %>

@@ -9,7 +9,7 @@
   <%= form_tag("/search",:method=>:get) do %>
   <div class="grid_5">
   Department
-  <%= select_tag(:search_index,options_for_select(@amazon_search.list_search_indexes.collect{|s|[s[0],s[0]]})) %>
+  <%= select_tag(:department,options_for_select(@amazon_search.list_search_indexes.collect{|s|[s[0],s[0]]})) %>
     </div>  
     <div class="grid_3">
       Keyword
