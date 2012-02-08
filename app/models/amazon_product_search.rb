@@ -74,7 +74,6 @@ class AmazonProductSearch
      {:SearchIndex => @search_index , :ResponseGroup  => @response_group.flatten.uniq.compact,
           :Keywords=>@keywords,:BrowseNode=>@browse_node,:Brand=>@brand,:MinimumPrice=>@minimum_price,:MaximumPrice=>@maximum_price}
     end
-   
     @items,@response = @client.search(search_params)
      
    # fetch_review_items
@@ -116,8 +115,12 @@ class AmazonProductSearch
   end
   def narrow_by_subject
      begin
-      if @response["ItemSearchResponse"]["Items"]["SearchBinSets"]["SearchBinSet"][0]["Bin"] 
-        [@response["ItemSearchResponse"]["Items"]["SearchBinSets"]["SearchBinSet"][0]["Bin"]].flatten 
+      if @response["ItemSearchResponse"]["Items"]["SearchBinSets"]["SearchBinSet"]
+        if @response["ItemSearchResponse"]["Items"]["SearchBinSets"]["SearchBinSet"].is_a?(Hash)
+        [@response["ItemSearchResponse"]["Items"]["SearchBinSets"]["SearchBinSet"]["Bin"]].flatten 
+        else
+        @response["ItemSearchResponse"]["Items"]["SearchBinSets"]["SearchBinSet"][0]["Bin"]
+        end
       else
         []
       end  
@@ -129,7 +132,11 @@ class AmazonProductSearch
   def narrow_by_brand_name
     begin
      if @response["ItemSearchResponse"]["Items"]["SearchBinSets"]["SearchBinSet"][1]["Bin"]
-      [@response["ItemSearchResponse"]["Items"]["SearchBinSets"]["SearchBinSet"][1]["Bin"]].flatten
+      if @response["ItemSearchResponse"]["Items"]["SearchBinSets"]["SearchBinSet"].is_a?(Hash)
+        [@response["ItemSearchResponse"]["Items"]["SearchBinSets"]["SearchBinSet"]["Bin"]].flatten 
+      else
+         [@response["ItemSearchResponse"]["Items"]["SearchBinSets"]["SearchBinSet"][1]["Bin"]].flatten
+      end  
       else
         []
       end
@@ -141,7 +148,11 @@ class AmazonProductSearch
   def narrow_by_price_range
     begin
      if @response["ItemSearchResponse"]["Items"]["SearchBinSets"]["SearchBinSet"][2]["Bin"]
-      [@response["ItemSearchResponse"]["Items"]["SearchBinSets"]["SearchBinSet"][2]["Bin"]].flatten
+      if @response["ItemSearchResponse"]["Items"]["SearchBinSets"]["SearchBinSet"].is_a?(Hash)
+        [@response["ItemSearchResponse"]["Items"]["SearchBinSets"]["SearchBinSet"]["Bin"]].flatten 
+      else
+        [@response["ItemSearchResponse"]["Items"]["SearchBinSets"]["SearchBinSet"][2]["Bin"]].flatten
+      end 
      else
       []
      end 
