@@ -1,9 +1,9 @@
 require 'asin'
 ASIN::Configuration.configure do |config|
-  config.secret         = 'P1Im50TxFQ/rJGdEDNOvIcJUos8ytFpCH5RuLZqP'
-  config.key            = 'AKIAJTVK5XI3WHSXV6WA'
-  config.associate_tag  = 'twoologyidyll-20!'
-  config.version  = '2011-08-01'
+  config.secret         = ''
+  config.key            = ''
+  config.associate_tag  = ''
+  config.version  = ''
 end
 
 ASIN::Configuration.configure do |config|
